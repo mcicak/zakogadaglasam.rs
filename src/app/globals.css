@@ -5,16 +5,58 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --text-primary: #171717;
+  --text-secondary: #4b5563;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --progress-bg: #e5e7eb;
+  --progress-fill: #3b82f6;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #111827;
+    --foreground: #f9fafb;
+    --card-bg: #1f2937;
+    --card-border: #374151;
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --progress-bg: #374151;
+    --progress-fill: #3b82f6;
   }
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text-primary);
+}
+
+@layer components {
+  .card {
+    @apply bg-[var(--card-bg)] border border-[var(--card-border)] rounded-lg shadow-lg;
+  }
+  
+  .text-primary {
+    @apply text-[var(--text-primary)];
+  }
+  
+  .text-secondary {
+    @apply text-[var(--text-secondary)];
+  }
+  
+  .btn-primary {
+    @apply bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white rounded-lg transition-colors;
+  }
+  
+  .progress-bg {
+    @apply bg-[var(--progress-bg)];
+  }
+  
+  .progress-fill {
+    @apply bg-[var(--progress-fill)];
+  }
 }

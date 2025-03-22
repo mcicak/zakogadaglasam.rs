@@ -98,8 +98,8 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-xl font-semibold">Učitavanje pitanja...</div>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-xl font-semibold text-primary">Učitavanje pitanja...</div>
       </div>
     );
   }
@@ -111,39 +111,39 @@ export default function Home() {
     const compass2X = ((result.coordinates[2] + 2) / 4) * 100; // nationalism dimension
     const compass2Y = ((result.coordinates[3] + 2) / 4) * 100; // traditionalism dimension
 
-  return (
-      <div className="min-h-screen p-4 md:p-8 max-w-4xl mx-auto bg-gray-50">
-        <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center">Vaša Politička Pozicija</h1>
+    return (
+      <div className="min-h-screen p-4 md:p-8 max-w-4xl mx-auto">
+        <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center text-primary">Vaša Politička Pozicija</h1>
         
         {/* First Political Compass - Economic vs Social */}
-        <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 mb-6">
-          <h2 className="text-xl md:text-2xl font-semibold mb-4">Ekonomija vs Društvo</h2>
+        <div className="card p-4 md:p-6 mb-6">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-primary">Ekonomija vs Društvo</h2>
           <div className="relative w-full aspect-square max-w-md mx-auto">
             {/* Background grid */}
             <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
-              <div className="border-r border-b border-gray-200"></div>
-              <div className="border-b border-gray-200"></div>
-              <div className="border-r border-gray-200"></div>
+              <div className="border-r border-b border-[var(--card-border)]"></div>
+              <div className="border-b border-[var(--card-border)]"></div>
+              <div className="border-r border-[var(--card-border)]"></div>
               <div></div>
             </div>
             
             {/* Axes */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full h-0.5 bg-gray-300"></div>
+              <div className="w-full h-0.5 bg-[var(--card-border)]"></div>
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-0.5 h-full bg-gray-300"></div>
+              <div className="w-0.5 h-full bg-[var(--card-border)]"></div>
             </div>
             
             {/* Labels */}
-            <div className="absolute -top-6 left-0 text-sm text-gray-600">Autoritarno</div>
-            <div className="absolute -top-6 right-0 text-sm text-gray-600">Libertarijansko</div>
-            <div className="absolute -left-16 top-1/2 -translate-y-1/2 text-sm text-gray-600">Levo</div>
-            <div className="absolute -right-16 top-1/2 -translate-y-1/2 text-sm text-gray-600">Desno</div>
+            <div className="absolute -top-6 left-0 text-sm text-secondary">Autoritarno</div>
+            <div className="absolute -top-6 right-0 text-sm text-secondary">Libertarijansko</div>
+            <div className="absolute -left-16 top-1/2 -translate-y-1/2 text-sm text-secondary">Levo</div>
+            <div className="absolute -right-16 top-1/2 -translate-y-1/2 text-sm text-secondary">Desno</div>
             
             {/* User position */}
             <div 
-              className="absolute w-4 h-4 bg-blue-500 rounded-full transform -translate-x-1/2 -translate-y-1/2"
+              className="absolute w-4 h-4 bg-[var(--accent)] rounded-full transform -translate-x-1/2 -translate-y-1/2"
               style={{ 
                 left: `${compass1X}%`, 
                 top: `${100 - compass1Y}%` 
@@ -153,34 +153,34 @@ export default function Home() {
         </div>
 
         {/* Second Political Compass - Nationalism vs Traditionalism */}
-        <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 mb-6">
-          <h2 className="text-xl md:text-2xl font-semibold mb-4">Nacionalizam vs Tradicionalizam</h2>
+        <div className="card p-4 md:p-6 mb-6">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-primary">Nacionalizam vs Tradicionalizam</h2>
           <div className="relative w-full aspect-square max-w-md mx-auto">
             {/* Background grid */}
             <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
-              <div className="border-r border-b border-gray-200"></div>
-              <div className="border-b border-gray-200"></div>
-              <div className="border-r border-gray-200"></div>
+              <div className="border-r border-b border-[var(--card-border)]"></div>
+              <div className="border-b border-[var(--card-border)]"></div>
+              <div className="border-r border-[var(--card-border)]"></div>
               <div></div>
             </div>
             
             {/* Axes */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full h-0.5 bg-gray-300"></div>
+              <div className="w-full h-0.5 bg-[var(--card-border)]"></div>
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-0.5 h-full bg-gray-300"></div>
+              <div className="w-0.5 h-full bg-[var(--card-border)]"></div>
             </div>
             
             {/* Labels */}
-            <div className="absolute -top-6 left-0 text-sm text-gray-600">Progresivno</div>
-            <div className="absolute -top-6 right-0 text-sm text-gray-600">Tradicionalno</div>
-            <div className="absolute -left-16 top-1/2 -translate-y-1/2 text-sm text-gray-600">Globalistički</div>
-            <div className="absolute -right-16 top-1/2 -translate-y-1/2 text-sm text-gray-600">Nacionalistički</div>
+            <div className="absolute -top-6 left-0 text-sm text-secondary">Progresivno</div>
+            <div className="absolute -top-6 right-0 text-sm text-secondary">Tradicionalno</div>
+            <div className="absolute -left-16 top-1/2 -translate-y-1/2 text-sm text-secondary">Globalistički</div>
+            <div className="absolute -right-16 top-1/2 -translate-y-1/2 text-sm text-secondary">Nacionalistički</div>
             
             {/* User position */}
             <div 
-              className="absolute w-4 h-4 bg-blue-500 rounded-full transform -translate-x-1/2 -translate-y-1/2"
+              className="absolute w-4 h-4 bg-[var(--accent)] rounded-full transform -translate-x-1/2 -translate-y-1/2"
               style={{ 
                 left: `${compass2X}%`, 
                 top: `${100 - compass2Y}%` 
@@ -190,48 +190,48 @@ export default function Home() {
         </div>
 
         {/* Matched Party */}
-        <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 mb-6">
-          <h2 className="text-xl md:text-2xl font-semibold mb-4">Vaša Politička Stranka</h2>
-          <div className="p-4 bg-blue-50 rounded-md mb-4">
-            <p className="text-xl font-bold mb-2">{result.matchedParty.name}</p>
-            <p className="text-gray-600 mb-3">{result.matchedParty.description}</p>
+        <div className="card p-4 md:p-6 mb-6">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-primary">Vaša Politička Stranka</h2>
+          <div className="p-4 bg-[var(--accent)]/10 rounded-md mb-4">
+            <p className="text-xl font-bold mb-2 text-primary">{result.matchedParty.name}</p>
+            <p className="text-secondary mb-3">{result.matchedParty.description}</p>
             <div className="mb-2">
-              <span className="font-semibold">Podudaranje:</span>
-              <span className="ml-2 font-bold text-blue-600">{Math.round(result.similarityScore * 100)}%</span>
+              <span className="font-semibold text-primary">Podudaranje:</span>
+              <span className="ml-2 font-bold text-[var(--accent)]">{Math.round(result.similarityScore * 100)}%</span>
             </div>
           </div>
         </div>
 
         {/* All Parties Sorted by Relevance */}
-        <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 mb-6">
-          <h2 className="text-xl md:text-2xl font-semibold mb-4">Sve Stranke Prema Relevanci</h2>
+        <div className="card p-4 md:p-6 mb-6">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-primary">Sve stranke prema relevatnosti</h2>
           <div className="space-y-4">
             {allParties.map((party, index) => {
               const distance = Math.sqrt(
                 Math.pow(result.coordinates[0] - party.coordinates[0], 2) +
                 Math.pow(result.coordinates[1] - party.coordinates[1], 2)
               );
-              const similarity = 1 - (distance / 4); // 4 is max possible distance in 2D space
+              const similarity = 1 - (distance / 4);
               
               return (
                 <div 
                   key={party.id}
                   className={`p-4 rounded-md ${
                     index === 0 
-                      ? 'bg-blue-50 border-2 border-blue-500' 
-                      : 'bg-gray-50 border border-gray-200'
+                      ? 'bg-[var(--accent)]/10 border-2 border-[var(--accent)]' 
+                      : 'bg-[var(--card-bg)] border border-[var(--card-border)]'
                   }`}
                 >
                   <div className="flex justify-between items-start">
                     <div>
-                      <p className="font-bold">{party.name}</p>
-                      <p className="text-sm text-gray-600">{party.description}</p>
+                      <p className="font-bold text-primary">{party.name}</p>
+                      <p className="text-sm text-secondary">{party.description}</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold text-blue-600">
+                      <p className="font-semibold text-[var(--accent)]">
                         {Math.round(similarity * 100)}%
                       </p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-secondary">
                         {index === 0 ? 'Najbolje podudaranje' : `${index + 1}. po podudaranju`}
                       </p>
                     </div>
@@ -243,8 +243,8 @@ export default function Home() {
         </div>
 
         {/* Detailed Dimensions with Enhanced Progress Bars */}
-        <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 mb-6">
-          <h2 className="text-xl md:text-2xl font-semibold mb-4">Vaše Koordinate</h2>
+        <div className="card p-4 md:p-6 mb-6">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-primary">Vaše Koordinate</h2>
           <div className="space-y-6">
             {result.coordinates.map((coord, i) => {
               const dimensionKey = Object.keys(DIMENSION_NAMES)[i];
@@ -255,22 +255,22 @@ export default function Home() {
               return (
                 <div key={i} className="mb-4">
                   <div className="flex justify-between mb-2">
-                    <span className="font-semibold">{dimensionName}</span>
-                    <span className="text-sm text-gray-500">{coord.toFixed(1)}</span>
+                    <span className="font-semibold text-primary">{dimensionName}</span>
+                    <span className="text-sm text-secondary">{coord.toFixed(1)}</span>
                   </div>
-                  <div className="relative h-8 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="relative h-8 progress-bg rounded-full overflow-hidden">
                     {/* Dashed background */}
                     <div className="absolute inset-0 flex">
                       {[...Array(5)].map((_, index) => (
                         <div 
                           key={index}
-                          className="flex-1 border-r border-gray-300 last:border-r-0"
+                          className="flex-1 border-r border-[var(--card-border)] last:border-r-0"
                         ></div>
                       ))}
                     </div>
                     {/* Progress bar */}
                     <div 
-                      className="absolute top-0 bottom-0 bg-blue-500 transition-all duration-300"
+                      className="absolute top-0 bottom-0 progress-fill transition-all duration-300"
                       style={{ width: `${position}%` }}
                     ></div>
                     {/* Dashed overlay */}
@@ -284,11 +284,11 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex justify-between mt-1">
-                    <span className="text-xs text-gray-500">-2</span>
-                    <span className="text-xs text-gray-500">0</span>
-                    <span className="text-xs text-gray-500">2</span>
+                    <span className="text-xs text-secondary">-2</span>
+                    <span className="text-xs text-secondary">0</span>
+                    <span className="text-xs text-secondary">2</span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-2">{explanation}</p>
+                  <p className="text-xs text-secondary mt-2">{explanation}</p>
                 </div>
               );
             })}
@@ -298,7 +298,7 @@ export default function Home() {
         <div className="text-center mt-8">
           <button 
             onClick={() => window.location.reload()}
-            className="bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-3 px-6 transition-colors"
+            className="btn-primary py-3 px-6"
           >
             Započni ponovo
           </button>
@@ -308,25 +308,25 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen p-4 md:p-8 max-w-2xl mx-auto bg-gray-50">
+    <div className="min-h-screen p-4 md:p-8 max-w-2xl mx-auto">
       <div className="mb-6">
-        <div className="h-2 w-full bg-gray-200 rounded-full">
+        <div className="h-2 w-full progress-bg rounded-full">
           <div 
-            className="h-2 bg-blue-500 rounded-full transition-all duration-300" 
+            className="h-2 progress-fill rounded-full transition-all duration-300" 
             style={{ width: `${progressPercent}%` }}
           ></div>
         </div>
-        <div className="text-sm text-gray-500 mt-2 text-right">
+        <div className="text-sm text-secondary mt-2 text-right">
           Pitanje {currentQuestion + 1} od {totalQuestions}
         </div>
       </div>
       
-      <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="card p-6">
         <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">
+          <h2 className="text-xl font-semibold mb-4 text-primary">
             {questions[currentQuestion]?.text}
           </h2>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-secondary">
             Izrazite koliko se slažete sa ovom tvrdnjom:
           </p>
         </div>
@@ -336,10 +336,10 @@ export default function Home() {
             <button
               key={option.value}
               onClick={() => handleAnswer(option.value)}
-              className="w-full text-left p-4 rounded-lg border border-gray-300 hover:bg-blue-50 hover:border-blue-300 transition-colors flex justify-between items-center"
+              className="w-full text-left p-4 rounded-lg border border-[var(--card-border)] hover:bg-[var(--accent)]/10 hover:border-[var(--accent)] transition-colors flex justify-between items-center"
             >
-              <span>{option.label}</span>
-              <span className="text-gray-400">{option.value}</span>
+              <span className="text-primary">{option.label}</span>
+              <span className="text-secondary">{option.value}</span>
             </button>
           ))}
         </div>
