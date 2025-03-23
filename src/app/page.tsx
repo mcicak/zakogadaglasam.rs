@@ -118,9 +118,9 @@ export default function Home() {
         {/* First Political Compass - Economic vs Social */}
         <div className="card p-4 md:p-6 mb-6">
           <h2 className="text-xl md:text-2xl font-semibold mb-4 text-primary">Ekonomija vs Društvo</h2>
-          <div className="relative w-full aspect-square max-w-md mx-auto">
+          <div className="relative w-full aspect-square max-w-md mx-auto pt-8 pb-6 px-20">
             {/* Background grid */}
-            <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
+            <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 mx-20 my-8">
               <div className="border-r border-b border-[var(--card-border)]"></div>
               <div className="border-b border-[var(--card-border)]"></div>
               <div className="border-r border-[var(--card-border)]"></div>
@@ -128,18 +128,26 @@ export default function Home() {
             </div>
             
             {/* Axes */}
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center mx-20 my-8">
               <div className="w-full h-0.5 bg-[var(--card-border)]"></div>
             </div>
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center mx-20 my-8">
               <div className="w-0.5 h-full bg-[var(--card-border)]"></div>
             </div>
             
-            {/* Labels */}
-            <div className="absolute -top-6 left-0 text-sm text-secondary">Autoritarno</div>
-            <div className="absolute -top-6 right-0 text-sm text-secondary">Libertarijansko</div>
-            <div className="absolute -left-16 top-1/2 -translate-y-1/2 text-sm text-secondary">Levo</div>
-            <div className="absolute -right-16 top-1/2 -translate-y-1/2 text-sm text-secondary">Desno</div>
+            {/* Y-axis labels */}
+            <div className="absolute left-0 inset-y-0 flex flex-col justify-between items-center my-8 w-20">
+              <span className="text-sm text-secondary text-center">Autoritarno<br/>(-2)</span>
+              <span className="text-sm text-secondary">Društvo</span>
+              <span className="text-sm text-secondary text-center">Libertarijansko<br/>(2)</span>
+            </div>
+            
+            {/* X-axis labels */}
+            <div className="absolute bottom-0 inset-x-0 flex justify-between items-center mx-20 h-6">
+              <span className="text-sm text-secondary text-center">Levo<br/>(-2)</span>
+              <span className="text-sm text-secondary">Ekonomija</span>
+              <span className="text-sm text-secondary text-center">Desno<br/>(2)</span>
+            </div>
             
             {/* User position */}
             <div 
@@ -155,9 +163,9 @@ export default function Home() {
         {/* Second Political Compass - Nationalism vs Traditionalism */}
         <div className="card p-4 md:p-6 mb-6">
           <h2 className="text-xl md:text-2xl font-semibold mb-4 text-primary">Nacionalizam vs Tradicionalizam</h2>
-          <div className="relative w-full aspect-square max-w-md mx-auto">
+          <div className="relative w-full aspect-square max-w-md mx-auto pt-8 pb-6 px-20">
             {/* Background grid */}
-            <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
+            <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 mx-20 my-8">
               <div className="border-r border-b border-[var(--card-border)]"></div>
               <div className="border-b border-[var(--card-border)]"></div>
               <div className="border-r border-[var(--card-border)]"></div>
@@ -165,18 +173,26 @@ export default function Home() {
             </div>
             
             {/* Axes */}
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center mx-20 my-8">
               <div className="w-full h-0.5 bg-[var(--card-border)]"></div>
             </div>
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center mx-20 my-8">
               <div className="w-0.5 h-full bg-[var(--card-border)]"></div>
             </div>
             
-            {/* Labels */}
-            <div className="absolute -top-6 left-0 text-sm text-secondary">Progresivno</div>
-            <div className="absolute -top-6 right-0 text-sm text-secondary">Tradicionalno</div>
-            <div className="absolute -left-16 top-1/2 -translate-y-1/2 text-sm text-secondary">Globalistički</div>
-            <div className="absolute -right-16 top-1/2 -translate-y-1/2 text-sm text-secondary">Nacionalistički</div>
+            {/* Y-axis labels */}
+            <div className="absolute left-0 inset-y-0 flex flex-col justify-between items-center my-8 w-20">
+              <span className="text-sm text-secondary text-center">Progresivno<br/>(-2)</span>
+              <span className="text-sm text-secondary">Tradicija</span>
+              <span className="text-sm text-secondary text-center">Tradicionalno<br/>(2)</span>
+            </div>
+            
+            {/* X-axis labels */}
+            <div className="absolute bottom-0 inset-x-0 flex justify-between items-center mx-20 h-6">
+              <span className="text-sm text-secondary text-center">Globalistički<br/>(-2)</span>
+              <span className="text-sm text-secondary">Nacionalizam</span>
+              <span className="text-sm text-secondary text-center">Nacionalistički<br/>(2)</span>
+            </div>
             
             {/* User position */}
             <div 
@@ -197,7 +213,9 @@ export default function Home() {
             <p className="text-secondary mb-3">{result.matchedParty.description}</p>
             <div className="mb-2">
               <span className="font-semibold text-primary">Podudaranje:</span>
-              <span className="ml-2 font-bold text-[var(--accent)]">{Math.round(result.similarityScore * 100)}%</span>
+              <span className="ml-2 font-bold text-[var(--accent)]">
+                {Math.round(Math.max(0, Math.min(1, result.similarityScore)) * 100)}%
+              </span>
             </div>
           </div>
         </div>
@@ -207,11 +225,17 @@ export default function Home() {
           <h2 className="text-xl md:text-2xl font-semibold mb-4 text-primary">Sve stranke prema relevatnosti</h2>
           <div className="space-y-4">
             {allParties.map((party, index) => {
+              // Calculate distance using all 5 dimensions
               const distance = Math.sqrt(
                 Math.pow(result.coordinates[0] - party.coordinates[0], 2) +
-                Math.pow(result.coordinates[1] - party.coordinates[1], 2)
+                Math.pow(result.coordinates[1] - party.coordinates[1], 2) +
+                Math.pow(result.coordinates[2] - party.coordinates[2], 2) +
+                Math.pow(result.coordinates[3] - party.coordinates[3], 2) +
+                Math.pow(result.coordinates[4] - party.coordinates[4], 2)
               );
-              const similarity = 1 - (distance / 4);
+              // Use the same calculation as the backend
+              const maxPossibleDistance = Math.sqrt(5 * 16); // 5 dimensions, max distance per dimension is 4^2 = 16
+              const similarity = Math.max(0, Math.min(1, 1 - (distance / maxPossibleDistance)));
               
               return (
                 <div 
